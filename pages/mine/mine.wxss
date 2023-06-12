@@ -1,0 +1,67 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.view-top{
+    background: #00BCD4;
+    width: inherit;
+    height: 230rpx;
+}
+
+.arc_image{
+    width:100%;
+    height: 50rpx;
+}
+.user-view{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: -60rpx;
+    align-items: center;
+
+}
+
+.img_avatar {
+    width: 128rpx;
+    height: 128rpx;
+
+    border-radius: 50%;
+}
+.text_username{
+    font-size: 40rpx;
+    margin-top:15rpx;
+}
+
+.mine_view{
+    margin: 20rpx;
+    display: flex;
+    flex-direction: row;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    background-color: #8ddbe6;
+    border-radius: 10rpx;
+    box-shadow:6rpx 6rpx 6rpx rgba(0,0,0,0.1);
+    justify-content: center;
+    font-size: 40rpx;
+
+}
+.get_user input{
+  margin-top: 10rpx;
+  border: 1rpx solid gray;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+.get_user image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.get_user{
+  margin-top: 50rpx;
+  display: flex;
+  margin-bottom: 100rpx;
+  flex-direction: column;
+  align-items: center;
+}

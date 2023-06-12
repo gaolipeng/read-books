@@ -1,0 +1,15 @@
+{
+  "name": "weyue-wxapp-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.10.19",
+    "weui-miniprogram": "^1.2.7"
+  }
+}

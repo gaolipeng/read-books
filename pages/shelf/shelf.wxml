@@ -1,0 +1,19 @@
+<swiper autoplay circular indicator-dots>
+<swiper-item> <image mode="widthFix" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/pic.png" /> </swiper-item>
+<swiper-item> <image mode="widthFix" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/pic1.png" /> </swiper-item>
+<swiper-item> <image mode="widthFix" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/pic2.png" /> </swiper-item>
+</swiper> 
+<view class="dd"></view>
+   <view class="aa">
+     <image class="bb" bindtap="books" mode="aspectFit" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/20da.jpg" ></image>
+     <text class="cc" bindtap="books">党的二十大报告</text>
+  </view>
+  <view class="dd"></view>
+   <view class="aa">
+   <image  class="bb" bindtap="book1" mode="aspectFit" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/dangzhang.jpg"></image>
+   <text class="cc" bindtap="book1">中国共产党党章</text>
+</view>
+
+
+
+

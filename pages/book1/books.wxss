@@ -1,0 +1,15 @@
+.test {
+  /*段落排版--首字缩进*/
+  text-indent: 2em;
+  /*段落排版--行间距（行高）*/
+  line-height: 1.5em;
+  /*段落排版--中文字间距*/
+  letter-spacing: 1px;
+  /*字母间距*/
+  word-spacing: 4px;
+  /*文字对齐 right 、left 、center  */
+  text-align: left;
+}
+.aa{
+  background-color: burlywood;
+}

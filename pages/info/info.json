@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
+  },
+  "navigationBarTitleText":"注册"
+}

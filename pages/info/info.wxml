@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view data-weui-theme="{{theme}}">
+  <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button> 
+  <form catchsubmit="formSubmit">
+    <view class="row">
+      <view class="text1">昵称：</view>
+        <input type="nickname" class="weui-input" name="nickname" placeholder="请输入昵称"/>
+    </view>
+    <button type="primary" style="margin-top: 40rpx;margin-bottom: 20rpx;" form-type="submit">提交</button>
+  </form>
+  <!-- 昵称为输入提醒 -->
+  <!-- <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips> -->
+</view>

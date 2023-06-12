@@ -1,0 +1,33 @@
+<view class="page">
+
+
+    <view class="view-top"/>
+    <image class="arc_image" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/ic_mine_arc.png"/>
+    <view style="height: 100rpx;"></view>
+    <view class="user-view">
+  <image class="img_avatar" src="{{avatar}}"></image>
+  <view>{{nickname}}</view>
+
+
+    </view>
+    <view class="mine_view"  bindtap="aboutAuthor">关于作者</view>
+    <view class="mine_view" bindtap="clickCard">打卡</view>
+    <view class="mine_view" bindtap="test">测试</view>
+
+</view>
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 50%"
+  bind:close="onClose"
+>
+<view class="get_user">
+<image src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/001.png" />
+<input type="text" placeholder="请输入昵称" />
+</view>
+<van-button type="primary" size="large" round color="linear-gradient(to right, #4bb0ff, #6149f6)">
+  登录
+</van-button>
+</van-popup>
+

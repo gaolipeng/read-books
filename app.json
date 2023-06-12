@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/info/info",
+    "pages/mine/mine",
+    "pages/shelf/shelf",
+    "pages/book1/books",
+    "pages/book2/book2",
+    "pages/about/about",
+    "pages/card/card"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00BCD4",
+    "navigationBarTitleText": "电子书",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#00BCD9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/shelf/shelf",
+        "iconPath": "image/ic_mine.png",
+        "selectedIconPath": "image/ic_mine_arc.png",
+        "text": "书架"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/ic_mine.png",
+        "selectedIconPath": "image/ic_mine_arc.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
+  },
+  "debug": false
+}

@@ -1,0 +1,12 @@
+
+<view class="page">
+    <image class="img_avatar" src="cloud://cloud1-6gyszzt796272f87.636c-cloud1-6gyszzt796272f87-1318287486/image/dev.png"/>
+    <view class="about_v">版本：v1</view>
+    <br/>
+    <br/>
+    <br/>
+    <view class="about_v">bug反馈联系方式：</view>
+    <view class="about_v">邮箱：1207143811@qq.com</view>
+    <view class="about_v">邮箱：2311453178@qq.com</view>
+    
+</view>
