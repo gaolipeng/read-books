@@ -1,10 +1,11 @@
 const util = require('../../utils/util.js')
 const db = wx.cloud.database()
 const app = getApp()
-
+const _ = db.command
 
 Page({
     data: {
+        total: 0,
         sysW: null,
         lastDay: null,
         year: null,
@@ -72,6 +73,7 @@ Page({
         that.setData({
             day:array
         })
+        console.log(this.data.day)
     },
     dateSelectAction: function (e) {
         let cur_day = e.currentTarget.dataset.idx;
@@ -156,6 +158,7 @@ Page({
         this.setData({
             days:this.data.days,
         })
+        // console.log(this.data.days)
     },
     //上下月
     handleCalendar(e) {
@@ -256,13 +259,39 @@ Page({
             display: "none",
         })
     },
-    onLoad: function (options) {
-      var that = this
+    getData(){
+      let that = this 
+      // 初始化数据
+      let date = new Date();
+  
+      let obinl = parseInt(util.getWeekByDate(new Date()));//今天周几
+      that.setData({
+          cur_year:date.getFullYear(),
+          cur_month:date.getMonth() + 1,
+          todayIndex:date.getDate(),
+      })
+      // 判断今天是否打卡
+      db.collection('cardDetail').where({
+        _openid: app.openid,
+        m: that.data.cur_month,
+        d: that.data.todayIndex
+      })
+      .get({
+        success: function(res) {
+          if(res.data.length >= 1){
+            // that.data.ornot = true
+            that.setData({
+              ornot: true
+            })
+          }
+        }
+      })
+
       // 添加打卡总数据
       wx.cloud.database().collection('cardAll').where({
         _openid: app.openid
       }).get().then(res => {
-        // console.log(res)
+        console.log(res)
         let data = res.data
         if (data.length == 0) {
           db.collection('cardAll').add({
@@ -272,26 +301,30 @@ Page({
             }
           })
         }
-      })
-      // 获取打卡天数
   
-      const collection = db.collection('cardDetail')
+      })
+      // 获取总打卡天数
+      const collection = db.collection('cardAll')
       collection.where({
         _openid: app.openid
       }).count().then(res => {
-        console.log(res)
-        console.log(that.data)
+        // console.log(res)
+        // console.log(that.data)
         
         // that.data.continuity = res.total
         // console.log(that.continuity)
 
         that.setData({
-          continuity: res.total,
+          total: res.total,
+          // continuity: res.total,
         })
        
       }).catch(err => {
         console.error('查询失败：', err)
       })
+
+      // 今天是否打卡
+
       console.log("card onload")
     
         this.setNowDate();
@@ -306,35 +339,81 @@ Page({
         });
         this.sigarr();
     },
+    onLoad: function (options) {
+      this.getData()
+ 
+    },
     //获取数组参数
     sigarr:function(e){
         let that = this
         let ornot = that.data.ornot?0:1//当天是否签到
         let continuity = that.data.continuity//连续签到天数
+        // continuity = 4
+        // console.log(continuity)
+        // let continuity = that.data.continuity//连续签到天数
         let obinl = parseInt(util.getWeekByDate(new Date()));//今天周几
         let cur_year = that.data.cur_year;//年份
         let cur_month = that.data.cur_month - 1;//月份
+      
+        //生成今天0点时间戳
+        let currentDate = new Date();
+        // 将当前日期的小时、分钟、秒和毫秒设为0
+        currentDate.setHours(0, 0, 0, 0);
+        // 获取当前0点的时间戳
+        let timestamp = currentDate.getTime();
+        // 本周一时间
+        let diff = timestamp - obinl*3600*24*1000
+
         if (cur_month < 1) {//月份小于1年份减1
             cur_year = cur_year - 1;
             cur_month = 12;
         }
-        let num = obinl<continuity?(obinl + 1):continuity
-        //七日签到数组
-        for(let i = 0;i < num;i++){
-            if(i <= (obinl + 1)){ 
-                if(ornot == 0){
-                    if(0 <= (obinl - i - 1)){
-                        that.data.day[obinl - i - 1].src = "/images/newspaper.png"
-                    }
-                }else{
-                    if(0 <= (obinl - i - 2)){
-                        that.data.day[obinl - i - 2].src = "/images/newspaper.png"
-                    }
-                }
-            }else{
-                return false
+  
+      // 获取本周打卡数据
+      db.collection('cardDetail').where({
+        _openid: app.openid,
+        t: _.gt(diff)
+      })
+      .get({
+        success: function(res) {
+          let tmpData = res.data
+          console.log(tmpData)
+          for(let i = 0; i < 7; i++){
+            for(let j = 0; j < tmpData.length; j++){
+              console.log(that.data.day[i].wook)
+              if(tmpData[j].d == that.data.day[i].wook){
+                that.data.day[i].src = "/images/newspaper.png"
+                that.setData({
+                  day:that.data.day,//七天签到
+              })
+              }
             }
-        }  
+          }
+        }
+      })
+
+        // let num = obinl<continuity?(obinl + 1):continuity
+        //七日签到数组
+        // for(let i = 0;i < num;i++){
+        //     if(i <= (obinl + 1)){ 
+        //         if(ornot == 0){
+        //             if(0 <= (obinl - i - 1)){
+        //                 that.data.day[obinl - i - 1].src = "/images/newspaper.png"
+        //             }
+        //         }else{
+        //             if(0 <= (obinl - i - 2)){
+        //                 that.data.day[obinl - i - 2].src = "/images/newspaper.png"
+        //             }
+        //         }
+        //     }else{
+        //         return false
+        //     }
+        // }
+
+
+        // that.data.day[0].src = "/images/newspaper.png"
+        // that.data.day[1].src = "/images/newspaper.png"
+
         //签到数组
         that.setData({
             day:that.data.day,//七天签到
@@ -380,6 +459,14 @@ Page({
     dakainc:function(e){
         let that = this 
         let date = new Date();
+
+        //生成今天0点时间戳
+        const currentDate = new Date();
+        // 将当前日期的小时、分钟、秒和毫秒设为0
+        currentDate.setHours(0, 0, 0, 0);
+        // 获取当前0点的时间戳
+        const timestamp = currentDate.getTime();
+
         that.setData({
             ornot:true,
             continuity:that.data.continuity + 1,
@@ -393,13 +480,30 @@ Page({
         that.calculateEmptyGrids(that.data.cur_year,that.data.cur_month)//年月份排版
         that.sigarr();//获取数组参数
         that.popup();//显示签到弹窗
-        // 添加数据
+        // console.log(this.data.cur_year)
+        // console.log(this.data.cur_month)
+        // console.log(this.data.todayIndex)
+
+        // 添加添加数据
         wx.cloud.database().collection('cardDetail').add({
           data:{
-            cardtime: date
+            y: this.data.cur_year,
+            m: this.data.cur_month,
+            d: this.data.todayIndex,
+            t: timestamp
           }
         })
-
+        // 更新总数据
+        db.collection('cardAll').update({
+          data: {
+            num1: db.command.inc(1)
+          },
+          success: function(res) {
+            console.log(res.data)
+       
+          }
+        })
+        this.getData()
          
     },
     //显示签到弹窗

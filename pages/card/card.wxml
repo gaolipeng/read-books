@@ -1,7 +1,7 @@
 <view class='gs_banner'>
     <view class='gs_continue'>
         <view>每日坚持签到</view>
-        <view>总共签到：<text>{{continuity}}</text>天</view>
+        <view>总共签到：<text>{{total}}</text>天</view>
     </view>
 </view> 
 <view class='gs_sign'>

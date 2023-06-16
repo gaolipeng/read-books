@@ -10,9 +10,10 @@
 
 
     </view>
+    <view class="mine_view" bindtap="clickCard">每日打卡</view>
+    <view class="mine_view">排行榜<text style="color: gray; font-size: 30rpx;">(待开发)</text></view>
     <view class="mine_view"  bindtap="aboutAuthor">关于作者</view>
-    <view class="mine_view" bindtap="clickCard">打卡</view>
-    <view class="mine_view" bindtap="test">测试</view>
+    <!-- <view class="mine_view" bindtap="test">测试</view> -->
 
 </view>
 <van-popup
