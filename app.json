@@ -6,7 +6,9 @@
     "pages/book1/books",
     "pages/book2/book2",
     "pages/about/about",
-    "pages/card/card"
+    "pages/card/card",
+    "pages/share/share",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -332,9 +332,9 @@ Page({
         this.dataTime();
         var res = wx.getSystemInfoSync();
         this.setData({
-            sysW: res.windowHeight / 12-5,//更具屏幕宽度变化自动设置宽度
+            sysW: res.windowHeight / 15-5,//更具屏幕宽度变化自动设置宽度
             getDate: this.data.getDate,
-            judge:1,
+            judge: 1,
             month: this.data.month,
         });
         this.sigarr();
