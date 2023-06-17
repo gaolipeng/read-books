@@ -27,7 +27,9 @@
         <view class='gs_sign_day'>
             <image bindtap='onshow' src='/images/r1.png'></image>
             <view>打卡记录</view>
-            <!-- <view>持续签到 <text>{{continuity}}</text>天</view> -->
+            <!-- <view>持续签到  -->
+            <!-- <text>{{continuity}}</text> -->
+            <!-- 天</view> -->
         </view>
         <view class='gs_sign_content'>
             <view class='gs_week'>
