@@ -26,3 +26,7 @@
   - `views.py` 中避免写过重业务逻辑，复杂逻辑封装到 `services` / `utils` / `tools` 中。  
   - `models.py` 中字段命名清晰、含义明确，不使用难以理解的缩写。  
   - `serializers.py` 中保持字段与模型一致性，避免过多业务判断。  
+- **命名与结构**
+  - 变量 / 函数：使用小写加下划线，如 `get_user_token`。  
+  - 类名：使用大驼峰，如 `UserProfileView`。  
+  - 常量：全部大写加下划线，如 `DEFAULT_TIMEOUT`.  
