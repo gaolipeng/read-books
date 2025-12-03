@@ -22,3 +22,7 @@
 - **Python 版本与风格**
   - 使用 Python 3.8+。
   - 遵循 **PEP8** 代码风格（推荐使用 `flake8` 或 `ruff` 等工具进行检查）。  
+- **Django 相关约定**
+  - `views.py` 中避免写过重业务逻辑，复杂逻辑封装到 `services` / `utils` / `tools` 中。  
+  - `models.py` 中字段命名清晰、含义明确，不使用难以理解的缩写。  
+  - `serializers.py` 中保持字段与模型一致性，避免过多业务判断。  
