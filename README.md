@@ -9,3 +9,6 @@
   - 新功能：`feature/xxx`  
   - Bug 修复：`fix/xxx`  
   - 文档：`docs/xxx`  
+- **本地开发**：  
+  - 安装依赖：`pip install -r requirements.txt`  
+  - 进行功能开发 / Bug 修复，并确保本地测试通过：`python manage.py test`（如有）  
