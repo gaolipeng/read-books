@@ -13,3 +13,4 @@
   - 安装依赖：`pip install -r requirements.txt`  
   - 进行功能开发 / Bug 修复，并确保本地测试通过：`python manage.py test`（如有）  
 - **提交代码**：按下文“提交规范”编写 commit 信息并推送到你自己的远程仓库。  
+- **发起 Pull Request**：在主页仓库中从你的分支发起 PR，按照“PR 描述格式”填写说明。
