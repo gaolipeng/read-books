@@ -4,3 +4,8 @@
 
 ### 贡献指南（Contribution Guide）
 #### 1. 外部开发者如何贡献
+- **Fork 仓库**：在 GitHub/GitLab 上 Fork 本项目到你自己的账号下。  
+- **创建分支**：从 `main`（或 `dev`）分支拉出新分支，分支命名建议如下：  
+  - 新功能：`feature/xxx`  
+  - Bug 修复：`fix/xxx`  
+  - 文档：`docs/xxx`  
