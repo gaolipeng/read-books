@@ -12,3 +12,4 @@
 - **本地开发**：  
   - 安装依赖：`pip install -r requirements.txt`  
   - 进行功能开发 / Bug 修复，并确保本地测试通过：`python manage.py test`（如有）  
+- **提交代码**：按下文“提交规范”编写 commit 信息并推送到你自己的远程仓库。  
